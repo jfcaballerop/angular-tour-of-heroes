@@ -29,4 +29,11 @@ export class DashboardComponent implements OnInit {
       });
 
   }
+
+  deleteHeroe(hero: Hero): void {
+    this.heroService.deleteHero(hero)
+      .subscribe(h => {
+        this.heroes.splice(this.heroes.indexOf(hero), 1);
+      });
+  }
 }

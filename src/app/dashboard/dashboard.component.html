@@ -1,7 +1,7 @@
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
 
-  <app-hero-list [data]="heroes"></app-hero-list>
+  <app-hero-list [data]="heroes" (deleteRequest)="deleteHeroe($event)"></app-hero-list>
 </div>
 
 <app-hero-search></app-hero-search>

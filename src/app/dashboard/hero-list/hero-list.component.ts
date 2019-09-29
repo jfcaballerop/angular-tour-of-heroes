@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from 'src/app/hero';
 
 @Component({
@@ -7,6 +7,8 @@ import { Hero } from 'src/app/hero';
   styleUrls: ['./hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
+  @Output() 
+  deleteRequest = new EventEmitter<Hero>();
 
   @Input()
   data: Hero[];
@@ -14,6 +16,12 @@ export class HeroListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  delete(hero: Hero) {
+    console.log('Delete call to parent');
+    this.deleteRequest.emit(hero);
+
   }
 
 }
